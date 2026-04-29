@@ -1,4 +1,5 @@
 $kind: http-request
+name: GetUser
 url: ""
 method: GET
 order: 1777424511781

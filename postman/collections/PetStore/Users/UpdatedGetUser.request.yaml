@@ -1,0 +1,4 @@
+$kind: http-request
+url: https://petstore.swagger.io/v2/user/{{username}}
+method: GET
+order: 4268204679271070
