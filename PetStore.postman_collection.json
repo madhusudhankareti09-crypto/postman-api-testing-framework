@@ -193,6 +193,7 @@
         }
       },
       "response": []
+<<<<<<< HEAD
     },
     {
       "name": "DeleteUser",
@@ -237,6 +238,8 @@
         }
       },
       "response": []
+=======
+>>>>>>> 95b7ef3bff2296d1026590d34a5e612de7088dd5
     }
   ]
 }
