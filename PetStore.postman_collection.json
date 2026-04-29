@@ -8,238 +8,278 @@
   },
   "item": [
     {
-      "name": "GetUser",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://petstore.swagger.io/v2/user/john",
-          "protocol": "https",
-          "host": [
-            "petstore",
-            "swagger",
-            "io"
-          ],
-          "path": [
-            "v2",
-            "user",
-            "john"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "CreateUser",
-      "event": [
+      "name": "User",
+      "item": [
         {
-          "listen": "prerequest",
-          "script": {
-            "exec": [
-              "function randomPhone() {\r",
-              "    return \"9\" + Math.floor(100000000 + Math.random() * 900000000).toString().slice(1);\r",
-              "}\r",
-              "\r",
-              "function customPassword() {\r",
-              "    return \"Test@\" + Math.floor(1000 + Math.random() * 9000);\r",
-              "}\r",
-              "\r",
-              "pm.environment.set(\"id\", Date.now()); // unique timestamp-based ID\r",
-              "pm.environment.set(\"phone\", randomPhone());\r",
-              "pm.environment.set(\"password\", customPassword());\r",
-              "pm.environment.set(\"firstName\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));\r",
-              "pm.environment.set(\"lastName\", pm.variables.replaceIn(\"{{$randomLastName}}\"));\r",
-              "pm.environment.set(\"username\", pm.variables.replaceIn(\"{{$randomUserName}}\"));\r",
-              "pm.environment.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));\r",
-              "pm.environment.set(\"userStatus\", Math.floor(Math.random() * 2)); // 0 or 1"
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              ""
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "POST",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"id\": {{id}},\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"{{firstName}}\",\r\n  \"lastName\": \"{{lastName}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"phone\": \"{{phone}}\",\r\n  \"userStatus\": {{userStatus}}\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
+          "name": "GetUser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/john",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "john"
+              ]
             }
-          }
-        },
-        "url": {
-          "raw": "https://petstore.swagger.io/v2/user",
-          "protocol": "https",
-          "host": [
-            "petstore",
-            "swagger",
-            "io"
-          ],
-          "path": [
-            "v2",
-            "user"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "UpdateUser",
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "pm.test(\"Update successful\", function () {\r",
-              "    pm.response.to.have.status(200);\r",
-              "});"
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "PUT",
-        "header": [],
-        "body": {
-          "mode": "raw",
-          "raw": "{\r\n  \"id\": {{id}},\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"UpdatedName\",\r\n  \"lastName\": \"{{lastName}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"phone\": \"{{phone}}\",\r\n  \"userStatus\": {{userStatus}}\r\n}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        },
-        "url": {
-          "raw": "https://petstore.swagger.io/v2/user/{{username}}",
-          "protocol": "https",
-          "host": [
-            "petstore",
-            "swagger",
-            "io"
-          ],
-          "path": [
-            "v2",
-            "user",
-            "{{username}}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "UpdatedGetUser",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "exec": [
-              ""
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
+          },
+          "response": []
         },
         {
-          "listen": "test",
-          "script": {
-            "exec": [
-              "let res = pm.response.json();\r",
-              "\r",
-              "pm.test(\"First name updated\", function () {\r",
-              "    pm.expect(res.firstName).to.eql(\"UpdatedName\");\r",
-              "});"
-            ],
-            "type": "text/javascript",
-            "packages": {},
-            "requests": {}
-          }
-        }
-      ],
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "https://petstore.swagger.io/v2/user/{{username}}",
-          "protocol": "https",
-          "host": [
-            "petstore",
-            "swagger",
-            "io"
-          ],
-          "path": [
-            "v2",
-            "user",
-            "{{username}}"
-          ]
-        }
-      },
-      "response": []
-<<<<<<< HEAD
-    },
-    {
-      "name": "DeleteUser",
-      "request": {
-        "method": "DELETE",
-        "header": [],
-        "url": {
-          "raw": "{{baseurl}}/{{username}}",
-          "host": [
-            "{{baseurl}}"
-          ],
-          "path": [
-            "{{username}}"
-          ]
-        }
-      },
-      "response": []
-    },
-    {
-      "name": "LoginUser",
-      "request": {
-        "method": "GET",
-        "header": [],
-        "url": {
-          "raw": "{{baseurl}}/login?username={{username}}&password={{password}}",
-          "host": [
-            "{{baseurl}}"
-          ],
-          "path": [
-            "login"
-          ],
-          "query": [
+          "name": "CreateUser",
+          "event": [
             {
-              "key": "username",
-              "value": "{{username}}"
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  "function randomPhone() {\r",
+                  "    return \"9\" + Math.floor(100000000 + Math.random() * 900000000).toString().slice(1);\r",
+                  "}\r",
+                  "\r",
+                  "function customPassword() {\r",
+                  "    return \"Test@\" + Math.floor(1000 + Math.random() * 9000);\r",
+                  "}\r",
+                  "\r",
+                  "pm.environment.set(\"id\", Date.now()); // unique timestamp-based ID\r",
+                  "pm.environment.set(\"phone\", randomPhone());\r",
+                  "pm.environment.set(\"password\", customPassword());\r",
+                  "pm.environment.set(\"firstName\", pm.variables.replaceIn(\"{{$randomFirstName}}\"));\r",
+                  "pm.environment.set(\"lastName\", pm.variables.replaceIn(\"{{$randomLastName}}\"));\r",
+                  "pm.environment.set(\"username\", pm.variables.replaceIn(\"{{$randomUserName}}\"));\r",
+                  "pm.environment.set(\"email\", pm.variables.replaceIn(\"{{$randomEmail}}\"));\r",
+                  "pm.environment.set(\"userStatus\", Math.floor(Math.random() * 2)); // 0 or 1"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             },
             {
-              "key": "password",
-              "value": "{{password}}"
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
             }
-          ]
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": {{id}},\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"{{firstName}}\",\r\n  \"lastName\": \"{{lastName}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"phone\": \"{{phone}}\",\r\n  \"userStatus\": {{userStatus}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdateUser",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Update successful\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": {{id}},\r\n  \"username\": \"{{username}}\",\r\n  \"firstName\": \"UpdatedName\",\r\n  \"lastName\": \"{{lastName}}\",\r\n  \"email\": \"{{email}}\",\r\n  \"password\": \"{{password}}\",\r\n  \"phone\": \"{{phone}}\",\r\n  \"userStatus\": {{userStatus}}\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/{{username}}",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "{{username}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DeleteUser",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/{{username}}",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "{{username}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "LoginUser",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseurl}}/login?username={{username}}&password={{password}}",
+              "host": [
+                "{{baseurl}}"
+              ],
+              "path": [
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "{{username}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "UpdatedGetUser",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let res = pm.response.json();\r",
+                  "\r",
+                  "pm.test(\"First name updated\", function () {\r",
+                  "    pm.expect(res.firstName).to.eql(\"UpdatedName\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/user/{{username}}",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "user",
+                "{{username}}"
+              ]
+            }
+          },
+          "response": []
         }
-      },
-      "response": []
-=======
->>>>>>> 95b7ef3bff2296d1026590d34a5e612de7088dd5
+      ]
+    },
+    {
+      "name": "Store",
+      "item": [
+        {
+          "name": "GetPurchaseID",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        },
+        {
+          "name": "GetInventory",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/store/inventory",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "store",
+                "inventory"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ]
 }
