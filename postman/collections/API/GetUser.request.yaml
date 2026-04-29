@@ -18,8 +18,9 @@ scripts:
 
       pm.test(\"Username matches\", function () {\r
 
-      \    pm.expect(response.username).to.eql(pm.environment.get(\"username\"));\r
+      \    pm.expect(response.username).to.eql(pm.environment.get(\"username\")\
+      );\r
 
       });"
     language: text/javascript
-order: 1777424511781
+order: 1777445604096
