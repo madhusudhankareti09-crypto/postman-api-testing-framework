@@ -1,0 +1,4 @@
+$kind: http-request
+url: https://petstore.swagger.io/v2/user/logout
+method: GET
+order: 4494905931225237

@@ -1,0 +1,17 @@
+$kind: http-request
+name: LoginUser
+url: "{{bsaeurl}}user/login?username={{username}}?password={{password}}"
+method: GET
+queryParams:
+  - key: username
+    value: "{{username}}?password={{password}}"
+    disabled: true
+scripts:
+  - type: afterResponse
+    code: "pm.test(\"Status code is 200\", function () {\r
+
+      \    pm.response.to.have.status(200);\r
+
+      });"
+    language: text/javascript
+order: 4489006104969381
