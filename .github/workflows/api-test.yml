@@ -15,4 +15,6 @@ jobs:
         run: npm install -g newman
 
       - name: Run collection
-  run: newman run PetStore.postman_collection.json -e QA.postman_environment.json
+        run: |
+          newman run PetStore.postman_collection.json \
+          -e QA.postman_environment.json
