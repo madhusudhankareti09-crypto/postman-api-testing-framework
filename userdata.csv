@@ -1,0 +1,7 @@
+id,username,firstName,lastName,email,password,phone
+101,john123,John,Doe,john@gmail.com,pass123,9876543210
+102,mike123,Mike,Smith,mike@gmail.com,pass456,9876543211
+103,alex123,Alex,Brown,alex@gmail.com,pass789,9876543212
+
+
+

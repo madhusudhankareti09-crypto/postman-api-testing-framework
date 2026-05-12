@@ -24,6 +24,7 @@ jobs:
         run: |
           newman run PetStore.postman_collection.json \
           -e QA.postman_environment.json \
+          -d userdata.csv
           -r cli,json,htmlextra \
           --reporter-json-export reports/report.json \
           --reporter-htmlextra-export reports/report-$(date +%s).html

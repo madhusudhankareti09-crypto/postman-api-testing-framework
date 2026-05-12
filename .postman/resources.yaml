@@ -1,0 +1,9 @@
+# Use this workspace to collaborate
+workspace:
+  id: c02ece8b-e1b6-45c1-848c-bec1612c5ab7
+
+localResources:
+  collections:
+    - ..\PetStore.postman_collection.json
+  environments:
+    - ..\QA.postman_environment.json
