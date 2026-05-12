@@ -197,14 +197,6 @@
       "name": "Store",
       "item": [
         {
-          "name": "GetPurchaseID",
-          "request": {
-            "method": "GET",
-            "header": []
-          },
-          "response": []
-        },
-        {
           "name": "GetInventory",
           "request": {
             "auth": {
