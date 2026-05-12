@@ -280,6 +280,45 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Pets",
+      "item": [
+        {
+          "name": "CreatePet",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"id\": 101,\r\n  \"category\": {\r\n    \"id\": 1,\r\n    \"name\": \"Dogs\"\r\n  },\r\n  \"name\": \"GoldenRetriever\",\r\n  \"photoUrls\": [\r\n    \"https://example.com/photos/goldenretriever1.jpg\",\r\n    \"https://example.com/photos/goldenretriever2.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 11,\r\n      \"name\": \"friendly\"\r\n    },\r\n    {\r\n      \"id\": 12,\r\n      \"name\": \"vaccinated\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://petstore.swagger.io/v2/pet",
+              "protocol": "https",
+              "host": [
+                "petstore",
+                "swagger",
+                "io"
+              ],
+              "path": [
+                "v2",
+                "pet"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": ".github/workflows",
+      "item": []
     }
   ]
 }
