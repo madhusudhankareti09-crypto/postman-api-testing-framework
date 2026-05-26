@@ -6,7 +6,7 @@ pipeline {
         stage('Run Postman Collection') {
             steps {
 
-                bat 'newman run PetStore.postman_collection.json'
+                bat 'newman run PetStore.postman_collection.json -e QA.postman_environment.json'
 
             }
         }
