@@ -3,10 +3,23 @@ pipeline {
 
     stages {
 
-        stage('Test') {
+        stage('Run Postman Collection') {
             steps {
-                echo 'Jenkins Working'
+
+                bat 'newman run PetStore.postman_collection.json'
+
             }
+        }
+    }
+
+    post {
+
+        success {
+            echo 'Postman Collection Executed Successfully'
+        }
+
+        failure {
+            echo 'Postman Collection Failed'
         }
     }
 }
