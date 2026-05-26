@@ -7,3 +7,15 @@ localResources:
     - ..\PetStore.postman_collection.json
   environments:
     - ..\QA.postman_environment.json
+
+dependencies:
+  collections:
+    54261848-bc7912a7-df09-4748-82ab-a345c7070885:
+      name: PetStore
+      path: ..\postman\.dependencies\collections\PetStore
+      pins:
+        - 54261848-a798c4bf-dd40-4349-8b5d-74292f81b37b
+  environments:
+    54261848-a798c4bf-dd40-4349-8b5d-74292f81b37b:
+      name: QA
+      path: ..\postman\.dependencies\environments\QA.environment.yaml

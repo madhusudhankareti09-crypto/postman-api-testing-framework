@@ -18,5 +18,16 @@
     "password": "Mike@123",
     "phone": "9988776655",
     "userStatus": 0
+  },
+  {
+    "id": 104,
+    "username": "mike_john",
+    "firstName": "Mikel",
+    "lastName": "Jony",
+    "email": "mikel.jony@example.com",
+    "password": "Mikel@123",
+    "phone": "9988776644",
+    "userStatus": 0
   }
+
 ]
