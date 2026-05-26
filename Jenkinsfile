@@ -6,8 +6,7 @@ pipeline {
         stage('Run Postman Collection') {
             steps {
 
-                bat 'newman run PetStore.postman_collection.json -e QA.postman_environment.json -r cli,html --reporter-html-export newman-report.html'
-
+                bat 'newman run PetStore.postman_collection.json -e QA.postman_environment.json -r cli,htmlextra --reporter-htmlextra-export newman-report.html'
             }
         }
     }
